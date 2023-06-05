@@ -1,0 +1,17 @@
+# Python CircleCI 2.0 configuration file
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7
+
+    working_directory: ~/repo
+
+    steps:
+      # Step 1: obtain repo from GitHub
+      - checkout
+      # Step 2: run linter and tests
+      - run:
+          name: run tests
+          command: | 
+          python3 -m unittest test_employee_management.py
